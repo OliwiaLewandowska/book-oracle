@@ -77,6 +77,6 @@ The original data that was provided consisted of three tables:
 - Add link to documentation of app 
 </span>
 
-## Random Info that needs to be deleted once the readme.md is finished
+## Random Info that needs to be deleted once the readme.md is finishe
 <span style="color: red;"> Information how to design a proper readme.md file. 
 https://google.github.io/styleguide/docguide/READMEs.html</span>
