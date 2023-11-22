@@ -22,3 +22,5 @@ In terminal
 -pip install <your-package>
 -pip freeze > requirements.txt
 then add, commit and push requirements.txt file
+
+complete documenatation
