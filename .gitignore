@@ -121,6 +121,7 @@ celerybeat.pid
 
 # Environments
 .python*
+.DS_Store
 .env
 .venv
 env/

@@ -73,10 +73,11 @@ The original data that was provided consisted of three tables:
 
 ## Web App
 <span style="color: red;"> 
-- Add description Which app is used: timelit?
+- Add description Which app is used: ?timelit? 
 - Add link to documentation of app 
 </span>
 
 ## Random Info that needs to be deleted once the readme.md is finishe
 <span style="color: red;"> Information how to design a proper readme.md file. 
 https://google.github.io/styleguide/docguide/READMEs.html</span>
+
