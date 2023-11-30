@@ -1,6 +1,5 @@
 from langdetect import detect
 import pandas as pd
-import json
 
 # Books DATA CLEANING - Janina Kleine
 
