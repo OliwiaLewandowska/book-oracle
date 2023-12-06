@@ -22,10 +22,20 @@ def clean_books(df):
     # Snakecase column names
     df.columns = df.columns.str.replace("-", "_").str.lower()
 
-    #Make the above for-loop more efficient
+    #Replace special characters in book_title and book_author
 
     for column in ['book_title', 'book_author']:
         df[column] = df[column].str.replace('Ã?Â?', 'ß').str.replace('Ã?Â¼', 'ü').str.replace('Ã¼', 'ü').str.replace('Ã?Â¤', 'ä').str.replace('Ã?Â¶', 'ö').str.replace('Ã?Â©', 'é').str.replace('Ã?Â¨', 'è').str.replace('Ã?Â', 'à').str.replace('àº', 'ú').str.replace('àª', 'ê').str.replace('à§', 'ç').str.replace('à¯', 'ï').str.replace('à«', 'ë').str.replace('à®', 'î').str.replace('à±', 'ñ').str.replace('à¢', 'â').str.replace('à¡', 'á').str.replace('à³', 'ó').str.replace('à´', 'ō').str.replace('à»', 'ū').str.replace('&Amp;', '&').str.replace('ã¡', 'á').str.replace('Ã?', 'ö').str.replace('ã¶', 'ö')
+
+    df['book_author'] = df['book_author'].str.replace('&Amp;', '&')
+    df['book_title'] = df['book_title'].str.replace('&Amp;', '&')
+
+    #Remove everything between brackets in book_title
+    df['book_title'] = df['book_title'].str.replace(r"\(.*\)","")
+
+    #Remove whitespaces and double spaces in book title & author
+    df['book_title'] = df['book_title'].str.strip()
+    df['book_title'] = df['book_author'].str.strip()
 
     # Capitalize the first letter of each word in specified columns
     df[['book_title', 'book_author']] = df[['book_title', 'book_author']].apply(lambda x: x.str.title())
@@ -52,12 +62,6 @@ def clean_books(df):
 
     # Drop duplicates based on 'common_identifier' and keep the first occurence
     df = df.drop_duplicates(subset = 'common_identifier', keep = 'first')
-
-    # Language detection
-    #df['language'] = df['book_title'].apply(detect_language)
-
-    # Only keep English books and reset index
-    #df = df[df['language'] == 'en'].reset_index(drop=True)
 
     # Drop columns 'image_url_s' and 'image_url_l'
     df.drop(columns=['image_url_l', 'image_url_s', 'identifier'], axis=1, inplace=True)
