@@ -1,0 +1,39 @@
+import pandas as pd
+import numpy as np
+
+#Modelling
+from sklearn.preprocessing import MinMaxScaler, StandardScaler, RobustScaler, OneHotEncoder
+
+from sklearn.metrics import classification_report, accuracy_score, roc_auc_score, roc_curve, confusion_matrix, make_scorer, precision_score, recall_score, f1_score
+from sklearn.model_selection import train_test_split, GridSearchCV, RandomizedSearchCV
+from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler, LabelEncoder
+from scipy.sparse import csr_matrix, hstack
+from sklearn.neighbors import NearestNeighbors
+
+from keras.models import Model
+from keras.layers import Input, Embedding, Flatten, Dense, Concatenate
+
+from tensorflow import keras
+from tensorflow.keras import layers
+
+
+
+#NLP
+import nltk
+
+#Plotting
+import matplotlib.pyplot as plt
+import seaborn as sns
+from matplotlib.ticker import PercentFormatter
+plt.rcParams.update({ "figure.figsize" : (8, 5),"axes.facecolor" : "white", "axes.edgecolor":  "black"})
+plt.rcParams["figure.facecolor"]= "w"
+pd.plotting.register_matplotlib_converters()
+pd.set_option('display.float_format', lambda x: '%.3f' % x)
+pd.options.display.float_format = "{:,.2f}".format
+
+RSEED = 42
+
+import warnings
+warnings.filterwarnings('ignore')
