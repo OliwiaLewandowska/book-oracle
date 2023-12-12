@@ -1,5 +1,6 @@
 from langdetect import detect
 import pandas as pd
+import re
 
 # Books DATA CLEANING - Janina Kleine
 
@@ -8,6 +9,12 @@ def detect_language(text):
         return detect(text)
     except:
         return 'Unknown'
+    
+def remove_brackets(text):
+    try:
+        return re.sub(r'\(.*', '', text)
+    except:
+        return text
 
 def clean_books(df):
     """
@@ -31,11 +38,13 @@ def clean_books(df):
     df['book_title'] = df['book_title'].str.replace('&Amp;', '&')
 
     #Remove everything between brackets in book_title
-    df['book_title'] = df['book_title'].str.replace(r"\(.*\)","")
+    #df['book_title'] = df['book_title'].str.replace(r"\(.*\)","")
+
+    df["book_title"] = df["book_title"].apply(lambda x: remove_brackets(x))
 
     #Remove whitespaces and double spaces in book title & author
     df['book_title'] = df['book_title'].str.strip()
-    df['book_title'] = df['book_author'].str.strip()
+    df['book_author'] = df['book_author'].str.strip()
 
     # Capitalize the first letter of each word in specified columns
     df[['book_title', 'book_author']] = df[['book_title', 'book_author']].apply(lambda x: x.str.title())
