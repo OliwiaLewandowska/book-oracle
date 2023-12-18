@@ -42,9 +42,6 @@ then add, commit and push requirements.txt file
 ## Status of Packages and Libraries
 <span style="color: red;"> whether this package/library is deprecated, or not for general release, etc.</span>
 
-## SQL Database
-<span style="color: red;"> Not sure what to add here</span>
-
 ## Description of Tables of Original Data
 Source of data: https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset
 
@@ -68,14 +65,9 @@ The original data that was provided consisted of three tables:
 ## Description of Table Created from Merged Tables
 <span style="color: red;"> finish</span>
 
-## Open API for Book Summary used for NLP
-<span style="color: red;"> add link to API documenation</span>
-
-## Web App
-<span style="color: red;"> 
-- Add description Which app is used: ?timelit? 
-- Add link to documentation of app 
-</span>
+## Web App 
+- Book Oracle mockup built with Streamlit
+- [Streamlit documentation](https://docs.streamlit.io/)
 
 ## Random Info that needs to be deleted once the readme.md is finishe
 <span style="color: red;"> Information how to design a proper readme.md file. 
